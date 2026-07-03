@@ -93,5 +93,86 @@ The receiving host processes this in reverse. It strips away the headers layer-b
 * **Payload:** The actual data carried within a specific PDU layer, excluding that layer's own header or trailer.
 * <img width="1920" height="1080" alt="Screenshot 2026-07-01 121035" src="https://github.com/user-attachments/assets/09e24388-045b-4b02-8bbc-688d26faf189" />
 <img width="1920" height="1080" alt="Screenshot 2026-07-01 121154" src="https://github.com/user-attachments/assets/f1151009-5f55-4c89-a405-fe4719564d08" />
+# 🌐 Computer Networking Basics & IPv4 Addressing
 
+Welcome to my documentation repository! This repository serves as a personal log of my journey learning **Networking Fundamentals** as part of my preparation for the **CCNA 200-301** certification, while building a rock-solid foundation for **Linux System Administration** and **Cloud Computing**.
 
+Inside, you will find organized summaries, practical examples, and interactive applications of the concepts I have studied and mastered.
+
+---
+
+## 📌 Table of Contents
+1. [IPv4 Address Structure](#1-ipv4-address-structure)
+2. [Subnet Mask Concept & The Dividing Line](#2-subnet-mask-concept--the-dividing-line)
+3. [Reserved Addresses & Host Range](#3-reserved-addresses--host-range)
+4. [Key Networking Concepts & Troubleshooting](#4-key-networking-concepts--troubleshooting)
+5. [Connecting Concepts to Cloud Computing](#5-connecting-concepts-to-cloud-computing)
+6. [Basic Cisco IOS Interface Configuration](#6-basic-cisco-ios-interface-configuration)
+
+---
+
+## 1. IPv4 Address Structure
+An **IPv4** address is composed of **32 bits** divided into four sections separated by dots. Each section is called an **octet** because it consists of 8 bits:
+
+$$
+32 \text{ Bits} = 4 \text{ Octets} \times 8 \text{ Bits}
+$$
+
+* **IP Address Example:** `192.168.1.50`
+* Computers understand this address in **Binary** format (as $0$s and $1$s), whereas humans write it in **Decimal** format to make it easier to read, configure, and memorize.
+
+---
+
+## 2. Subnet Mask Concept & The Dividing Line
+By itself, a computer cannot distinguish which part of an IP address represents the "local network" and which part represents the "individual device". This is where the **Subnet Mask** comes in, acting as the **Dividing Line**:
+
+| CIDR Notation | Subnet Mask Equivalent | Network ID Portion | Host ID Portion |
+| :--- | :--- | :--- | :--- |
+| **`/8`** | `255.0.0.0` | 1st octet only | Remaining 3 octets |
+| **`/16`** | `255.255.0.0` | First 2 octets | Remaining 2 octets |
+| **`/24`** | `255.255.255.0` | First 3 octets | Last octet only |
+
+### 🔍 Illustrative Examples:
+1. **With the address `192.168.1.50/24`:**
+   * **Network ID:** `192.168.1.0`
+   * **Host ID:** `50`
+2. **With the address `172.16.5.10/16`:**
+   * **Network ID:** `172.16.0.0`
+   * **Host ID:** `5.10`
+3. **With the address `10.20.30.40/8`:**
+   * **Network ID:** `10.0.0.0`
+   * **Host ID:** `20.30.40`
+
+---
+
+## 3. Reserved Addresses & Host Range
+Within any given network, there are always two addresses reserved for system operations that **cannot** be assigned to any individual host (computer, server, etc.):
+
+1. **Network ID:** The very first address in the network (where all host bits are $0$s), representing the identity of the network itself.
+2. **Broadcast Address:** The very last address in the network (where all host bits are $1$s/255), used to send data packets to all devices on the network simultaneously.
+
+### 📝 Practical Case Study:
+**Question:** Can you assign the IP address `192.168.5.0` to a computer in a network defined by the range `192.168.5.0/24`?
+* **Answer:** **No, absolutely not.**
+* **Reason:** Because the `/24` mask designates the first three octets (`192.168.5`) as the network portion. Therefore, the address ending in `.0` represents the **Network ID** itself, which is strictly reserved.
+
+### 📊 Calculating the Usable Host Range:
+For the network `192.168.5.0/24`:
+* **Network ID (Reserved):** `192.168.5.0`
+* **First Usable Host IP:** `192.168.5.1`
+* **Last Usable Host IP:** `192.168.5.254`
+* **Broadcast Address (Reserved):** `192.168.5.255`
+* **Usable Range:**
+  $$
+  \text{From } 192.168.5.1 \text{ to } 192.168.5.254
+  $$
+
+---
+
+## 4. Key Networking Concepts & Troubleshooting
+
+* **IP Address Conflict:**
+  This issue occurs when two active devices on the same local network are manually configured with the exact same IP address. It leads to packet loss and connection drops for both devices, as switches and routers struggle to direct traffic to the correct destination.
+
+* **Default Gateway:**
+  This is the IP
