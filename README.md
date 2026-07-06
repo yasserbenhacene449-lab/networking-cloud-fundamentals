@@ -176,3 +176,57 @@ For the network `192.168.5.0/24`:
 
 * **Default Gateway:**
   This is the IP
+# 🌐 Level 2: IP Addressing & Subnetting - Study Notes & Labs
+
+Welcome to my documentation for **Level 2: IP Addressing & Subnetting**. This repository serves as a technical reference and log of my progress as I master networking fundamentals tailored for **System Administration** and **Cloud Engineering**.
+
+---
+
+## 📑 Table of Contents
+1. [Lesson 2.1: IPv4 Structure & Binary Conversion](#-lesson-21-ipv4-structure--binary-conversion)
+2. [Lesson 2.2: Subnet Mask & CIDR Notation](#-lesson-22-subnet-mask--cidr-notation)
+3. [Lesson 2.3 & 2.4: Network ID, Broadcast IP & Usable Hosts](#-lesson-23--24-network-id-broadcast-ip--usable-hosts)
+4. [Lesson 2.5: Introduction to IPv6](#-lesson-25-introduction-to-ipv6)
+
+---
+
+## 🎯 Lesson 2.1: IPv4 Structure & Binary Conversion
+* **Concept:** IPv4 addresses consist of **32 bits**, divided into 4 octets (8 bits each).
+* **SysAdmin Relevance:** Understanding how systems read IPs in binary to debug network logs and troubleshoot connectivity.
+* **Practice Lab:** * Convert Decimal `10` to Binary using the bit-weight scale (`128 64 32 16 8 4 2 1`).
+  * **Result:** `00001010` (Bits 8 and 2 are active).
+
+---
+
+## 🎯 Lesson 2.2: Subnet Mask & CIDR Notation
+* **Concept:** CIDR (Classless Inter-Domain Routing) defines how many bits are locked for the Network ID.
+* **Cloud Relevance:** Vital for defining VPC CIDR blocks (e.g., `/16` for large infrastructures or `/24` for standard subnets).
+* **Key Takeaway:**
+  * `/24` = First 3 octets are fixed (`255.255.255.0`).
+  * `/16` = First 2 octets are fixed (`255.255.0.0`).
+  * `/32` = Points to a single specific host (Crucial for tight Firewall/Security Group rules).
+
+---
+
+## 🎯 Lesson 2.3 & 2.4: Network ID, Broadcast IP & Usable Hosts
+* **Concept:** Every subnet has reserved administrative boundaries that cannot be assigned to individual servers.
+* **Cloud Specific Rule (AWS/GCP):** Unlike traditional networking which reserves 2 addresses, Cloud providers reserve **5 IP addresses** per subnet for internal routing, DNS, and management.
+* **Lab Scenario Accomplished:**
+  * Given Subnet: `10.0.5.64/26` (Range: .64 to .127)
+  * **Network ID:** `10.0.5.64`
+  * **Broadcast IP:** `10.0.5.127`
+  * **First Usable Cloud IP:** `10.0.5.65` (Traditional) or `10.0.5.68` (AWS specific after reserving 5 IPs).
+
+---
+
+## 🎯 Lesson 2.5: Introduction to IPv6
+* **Concept:** A **128-bit** address space written in Hexadecimal to solve IPv4 exhaustion.
+* **Cloud Relevance:** Modern cloud architectures use IPv6 for direct Internet-facing servers without the need for complex and expensive NAT Gateways.
+* **Key Feature:** IPv6 eliminates Broadcast entirely, optimizing network traffic via Multicast.
+
+---
+
+### 🚀 Next Step
+Moving forward to **Level 3**, focusing on upper layers: **TCP/UDP Protocols, Ports management (SSH, HTTP), and essential services like DNS & DHCP.**
+<img width="1920" height="1080" alt="Screenshot 2026-07-06 180315" src="https://github.com/user-attachments/assets/d8f0333b-203c-4946-956c-0afc4b651690" />
+<img width="1920" height="1080" alt="Screenshot 2026-07-06 180226" src="https://github.com/user-attachments/assets/c95f907b-3c05-4cc9-970d-cc2caeabed98" />
