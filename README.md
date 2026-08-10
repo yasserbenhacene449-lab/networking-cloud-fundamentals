@@ -1,6 +1,5 @@
 # networking-cloud-fundamentals
-Daily hands-on lab documentation for Linux System Administration, Cloud Security, and Cisco CCNA networking fundamentals, tailored for corporate IT environments.
----
+"Cloud & Networking Fundamentals"---
 
 ## 🌐 Week 1: Networking & CCNA Core (Jeremy's IT Lab)
 
