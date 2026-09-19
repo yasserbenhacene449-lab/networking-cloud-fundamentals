@@ -44,3 +44,7 @@ Examines the current kernel routing table and default gateway configurations to 
 * **`ip route`**: Views active routing pathways and gateways.
 * **`ip route add <destination> via <gateway>`**: Adds static routing rules for remote subnets.
 * **`cat /proc/sys/net/ipv4/ip_forward`**: Checks kernel packe
+
+<img width="740" height="352" alt="Capture d’écran 2026-09-19 172112" src="https://github.com/user-attachments/assets/996f012d-bb5c-48ff-91f1-1c0cb9e1eec1" />
+<img width="726" height="215" alt="Capture d’écran 2026-09-19 171943" src="https://github.com/user-attachments/assets/728d68ad-db8f-415b-a759-a11570cbb3b8" />
+<img width="731" height="146" alt="Capture d’écran 2026-09-19 171859" src="https://github.com/user-attachments/assets/025eab4f-03ae-4e67-9a0b-8675cf091b1c" />
