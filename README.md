@@ -9,4 +9,4 @@ It details hands-on implementations in Linux systems administration, IP networki
 
 ## 📅 Roadmap & Learning Tracks
 ## 🚀 Week 1: Linux Networking Fundamentals
-* 📁 [Week 01: Linux & Enterprise Networking Fundamentals]
+* 📁 [Week 01: Linux & Enterprise Networking Fundamentals](./week-01)
